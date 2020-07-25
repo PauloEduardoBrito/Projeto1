@@ -7,9 +7,25 @@ require_relative 'projeto1.rb'
 include Project_one
 
 class Project
-  result = usuario.each { |user| user['action'] == ['paused'] }
-  puts result
   
-  resultado = usuario.any? { |xxx| xxx['action'] = ['paused'] } and usuario { |xxx| xxx ['user'] = ['acruz'] }
+  resultado = usuario.select {|acao_pausa| acao_pausa['action'] == 'paused'} and usuario.detect{|returno| returno['user'][1]['rgaspar'] }
   puts resultado
+  
+ 
 end
+
+
+# if usuario = result.usuario.each { |resultado| resultado['user'] == ['pbocucci'] }       
+#        puts 'imprimindo tudo que for do usuario pbocucci'
+#        puts usuario.select { |imprimi| imprimi['user'] == 'pbocucci' }
+        
+#         if result.usuario.each { | result2| result2['action'] == 'paused'}
+#             puts 'entrou aqui tb'
+#             puts result.usuario.detect { |value| value['user'] == 'rgaspar'}
+#         end
+
+#         if result.usuario.any? { |result3| result3['action'][0] != 'acruz'}
+#             puts 'negação'
+#             puts result.usuario.map { |res| res ['user'] == 'acruz'}
+#         end       
+#     end
