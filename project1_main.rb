@@ -8,24 +8,19 @@ include Project_one
 
 class Project
   
-  resultado = usuario.select {|acao_pausa| acao_pausa['action'] == 'paused'} and usuario.detect{|returno| returno['user'][1]['rgaspar'] }
-  puts resultado
-  
- 
+  if usuario.each { |only_pausa| only_pausa ['action'] == 'paused'}
+      puts usuario.detect { |one_user| one_user['user'] == 'rgaspar'}
+      if usuario.any? {|count_user| count_user ['action'] == 'login'}
+          puts tamanho_total = usuario.detect {|only_user| only_user ['user'] == 'pbocucci'}
+          puts tamanho_total.size
+      else
+          puts 'não deu certo'
+      end
+  end
 end
 
+# resultado = usuario.each {|status_pausa| status_pausa['action'] == 'paused'} and usuario.detect { |one_user| one_user['user'] == 'rgaspar' }
+  
+  
+#  usuario.each {|acao_pausa| acao_pausa['action'] == 'paused'} and usuario.detect {|res| res['user'] == 'rgaspar'}
 
-# if usuario = result.usuario.each { |resultado| resultado['user'] == ['pbocucci'] }       
-#        puts 'imprimindo tudo que for do usuario pbocucci'
-#        puts usuario.select { |imprimi| imprimi['user'] == 'pbocucci' }
-        
-#         if result.usuario.each { | result2| result2['action'] == 'paused'}
-#             puts 'entrou aqui tb'
-#             puts result.usuario.detect { |value| value['user'] == 'rgaspar'}
-#         end
-
-#         if result.usuario.any? { |result3| result3['action'][0] != 'acruz'}
-#             puts 'negação'
-#             puts result.usuario.map { |res| res ['user'] == 'acruz'}
-#         end       
-#     end
