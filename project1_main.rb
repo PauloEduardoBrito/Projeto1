@@ -8,19 +8,23 @@ include Project_one
 
 class Project
   
-  if usuario.each { |only_pausa| only_pausa ['action'] == 'paused'}
-      puts usuario.detect { |one_user| one_user['user'] == 'rgaspar'}
-      if usuario.any? {|count_user| count_user ['action'] == 'login'}
-          puts tamanho_total = usuario.detect {|only_user| only_user ['user'] == 'pbocucci'}
-          puts tamanho_total.size
-      else
-          puts 'não deu certo'
-      end
-  end
+
+    def retorna_acao_pausa_rgaspar user 
+          pausa_do_gaspar = usuario.select {|pausa| pausa['action'] == 'paused' and pausa['user'] == user}
+          puts "Está é única ação de pausa do" "#{pausa_do_gaspar}"
+    end
+
+    def total_user_pbocucci_using_login
+        using_login = usuario.select {|login| login['action'] == 'login' and login['user'] == 'pbocucci'}.count
+        puts "O total de registro de login do usuario pbocucci é igual a: " "#{using_login}"
+       
+    end
+
+
 end
 
-# resultado = usuario.each {|status_pausa| status_pausa['action'] == 'paused'} and usuario.detect { |one_user| one_user['user'] == 'rgaspar' }
-  
-  
-#  usuario.each {|acao_pausa| acao_pausa['action'] == 'paused'} and usuario.detect {|res| res['user'] == 'rgaspar'}
 
+retorno = Project.new
+
+retorno.retorna_acao_pausa_rgaspar 'rgaspar'
+retorno.total_user_pbocucci_using_login
